@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Your Page Title</title>
+    <!-- Include Font Awesome CSS (you can get the link from https://fontawesome.com/) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+
+<div class="navbar">
+    <img src="your-logo.png" alt="Logo" class="logo">
+    <a href="#"><i class="icon fas fa-bars"></i></a>
+    <a href="#"><i class="icon fas fa-th-large"></i></a>
+    <a href="#"><i class="icon fas fa-cog"></i></a>
+    <a href="#"><i class="icon fas fa-sign-out-alt"></i></a>
+</div>
+
+<div class="content-container">
+    <img src="path/to/image1.jpg" alt="Image 1" class="image">
+    <img src="path/to/image2.jpg" alt="Image 2" class="image">
+</div>
+
+</body>
+</html>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.navbar {
+    height: 100vh;
+    width: 60px;
+    background-color: #333;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Align items at the top */
+}
+
+.logo {
+    width: 40px; /* Adjust the width of the logo as needed */
+    height: auto;
+    margin-top: 20px; /* Adjust the margin as needed */
+}
+
+.icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px; /* Adjust the margin as needed */
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Make the links take the full width of the navbar */
+    height: 20%;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #555;
+}
+
+.icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.content {
+    margin-left: 60px; /* Adjust this value to match the width of your navbar */
+    padding: 16px;
+}
+.content-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.image {
+    width: 30vw; /* Set your desired width */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 10px; /* Adjust the margin between the images */
+}
+</style>

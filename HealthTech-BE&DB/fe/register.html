@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: url('1.jpg') center/cover no-repeat; 
+            font-family: Arial, sans-serif;
+            position: relative;
+            color: white;
+        }
+
+        .logo-container {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            z-index: 3;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .register-container {
+            text-align: center;
+            padding: 20px;
+            width: 400px;
+            border-radius: 8px;
+            background-color: rgba(0, 0, 0, 0.7); 
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.3);
+            z-index: 2;
+            margin-top: 50px; 
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .input-group input[type="text"],
+        .input-group input[type="email"],
+        .input-group input[type="password"] {
+            width: 100%;
+            height: 40px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 5px;
+            font-size: 16px;
+        }
+
+        .radio-group {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 15px;
+        }
+
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .radio-group input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        .input-group button {
+            width: 100%;
+            height: 40px;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #2aabf9; 
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        .input-group button:hover {
+            background-color: #1a7bb9; 
+        }
+        #back_button {
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            width: 200px;
+            height: 65px;
+            border-radius: 15px;
+            border: 3px solid white;
+            transition: 0.2s all ease;
+            background-color: grey;
+            color: white;
+            font-size: 26px;
+            text-align: center;
+            line-height: 65px;
+            cursor: pointer;
+            opacity: 0.75;
+        }
+        #back_button:hover {
+            border-color: grey;
+            transition: 0.2s all ease;
+            background-color: white;
+            color: grey;
+            opacity: 1;
+        }
+        #back_button:focus {
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <a id="back_button" href="login.html">Back</a>
+
+    <div class="logo-container">
+        <img src="HT.jpg" alt="Logo">
+    </div>
+
+
+    <div class="register-container">
+        <div class="input-group">
+            <label for="name">Nume:</label>
+            <input type="text" id="name" placeholder="Nume" required>
+        </div>
+        <div class="input-group">
+            <label for="surname">Prenume:</label>
+            <input type="text" id="surname" placeholder="Prenume" required>
+        </div>
+        <div class="input-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Email" required>
+        </div>
+        <div class="input-group">
+            <label for="password">Parolă:</label>
+            <input type="password" id="password" placeholder="Parolă" required>
+        </div>
+        <div class="input-group">
+            <label for="confirm-password">Confirmare Parolă:</label>
+            <input type="password" id="confirm-password" placeholder="Confirmare Parolă" required>
+        </div>
+        <div class="radio-group">
+            <label>
+                <input type="radio" name="user-type" value="client" checked>
+                Client
+            </label>
+            <label>
+                <input type="radio" name="user-type" value="doctor">
+                Doctor
+            </label>
+        </div>
+        <div class="input-group">
+            <button id="register-button" onclick="registerUser()">Register</button>
+        </div>
+    </div>
+
+    <script>
+        function registerUser() {
+            var name = document.getElementById('name').value;
+            var surname = document.getElementById('surname').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirm-password').value;
+
+            if (name && surname && email && password && confirmPassword) {
+                if (password === confirmPassword) {
+                    window.location.href = 'login.html';
+                } else {
+                    alert('Parola și confirmarea parolei nu se potrivesc.');
+                }
+            } else {
+                alert('Te rugăm să completezi toate câmpurile.');
+            }
+        }
+    </script>
+</body>
+</html

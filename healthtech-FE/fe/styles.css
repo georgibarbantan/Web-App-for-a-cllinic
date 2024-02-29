@@ -1,0 +1,392 @@
+/* Global styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Header styles */
+header {
+    background-color: #050135FA;
+    color: #fff;
+    padding: 10px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    max-width: 100px;
+}
+
+.nav-links a, .user-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    margin: 0 10px;
+}
+
+.nav-links a:hover, .user-links a:hover {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+.nav-links, .user-links {
+    display: flex;
+}
+
+/* Banner styles */
+.banner {
+    background-color: #f0f0f0;
+    padding: 50px;
+}
+
+.banner-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-content {
+    flex: 1;
+}
+
+.text-content h2 {
+    color: #333;
+}
+.blue-text{
+    color: #007E85;
+}
+
+.green-text {
+    color: #4CAF50;
+}
+
+.text-content p {
+    color: #555;
+}
+
+.btn-book {
+    background-color: #007E85;
+    ;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.btn-book:hover {
+    background-color: #555;
+}
+
+.image-content img {
+    width: 40vw;
+    max-width: 100%;
+    border-radius: 8px;
+
+}
+
+/* Subscribe Section Styles */
+.subscribe {
+    display: flex;
+    background-color: #f0f0f0;
+    padding: 50px;
+    text-align: center;
+    justify-content: space-evenly;
+}
+
+.subscribe-content {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.subscribe h2 {
+    color: #050135FA;
+}
+
+.subscribe-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.subscribe-form input {
+    padding: 10px;
+    width: 70%;
+    border: 1px solid #ddd;
+    border-radius: 15px; /* Updated to 15px for rounded corners */
+}
+
+.subscribe-form button {
+    background-color: #007E85;
+    ;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.subscribe-form button:hover {
+    background-color: #333;
+}
+
+/* Meet Our Doctors Section Styles */
+.meet-doctors {
+    display: flex;
+    background-color: #f0f0f0;
+    padding: 50px;
+    text-align: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.meet-doctors {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Ajustează pentru a schimba numărul de coloane */
+    gap: 20px; /* Ajustează pentru a stabili spațierea dorită între elemente */
+}
+
+.meet-doctors h2 {
+    color: #050135FA;
+}
+
+.doctor-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.doctor-card {
+    width: calc(33.3333% - 60px);
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.doctor-photo {
+    border-radius: 50%;
+    width: 10vw;
+  height:10vw;
+    margin: 0 auto 10px;
+}
+.services {
+    background-color: #f0f0f0;
+    padding: 50px;
+    text-align: center;
+}
+
+.health-box-sec {
+    background:#f0f0f0;
+    padding: 50px;
+    text-align: center;
+}
+
+.services h2 {
+    color: #007E85;
+}
+
+.service-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.service-card {
+    width: calc(33.3333% - 60px); /* Adjusted for 30px margin on each side */
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.service-photo {
+    width: 100%;
+
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.results {
+    background:#f0f0f0;
+    padding: 50px;
+    text-align: center;
+}
+
+.results h2 {
+    color: #007E85;
+}
+
+.stat-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.stat-card {
+    width: calc(33.3333% - 60px); /* Adjusted for 30px margin on each side */
+
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.percentage {
+    font-size: 2em;
+    color: #007E85;
+    font-weight: bold;
+    margin-top: 10px;
+}
+/* ... (previous styles) ... */
+
+/* ... (previous styles) ... */
+
+/* Find a Doctor Section Styles */
+.find-doctor {
+    background-color: #f0f0f0;
+    padding: 50px;
+    text-align: center;
+}
+
+.find-doctor h2 {
+    color: #050135FA;
+}
+
+.search-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center; /* Align items vertically in the center */
+    margin-top: 20px;
+}
+
+.search-form input {
+    width: calc(30% - 140px);
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.toggle-label {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    width: calc(30% - 140px);
+}
+
+.toggle-label input {
+    display: none;
+}
+
+.toggle-slider {
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 10px;
+    margin: 0 10px;
+    position: relative;
+}
+
+.toggle-slider:before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 2px;
+    transition: transform 0.3s;
+}
+
+input:checked + .toggle-slider {
+    background-color: #4CAF50;
+}
+
+input:checked + .toggle-slider:before {
+    transform: translate(20px, -50%);
+}
+
+.search-form button {
+    width: calc(30% - 20px);
+    margin: 10px;
+    padding: 10px;
+    background-color: #007E85;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* ... (remaining styles) ... */
+
+
+/* Footer styles */
+footer {
+    background-color: #050135FA;
+    color: #fff;
+    padding: 50px;
+    padding-left:20vw;
+    padding-right:20vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo img {
+    max-width: 80px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.contact-info {
+    text-align: right;
+    max-width: 300px;
+}
+
+.contact-info p {
+    margin: 5px 0;
+}
+
+.contact-info h4 {
+    margin-bottom: 10px;
+}
+
+/* Media query for small screens */
+@media screen and (max-width: 600px) {
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-logo,
+    .contact-info {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    /* Adjust card width for small screens */
+    .doctor-card {
+        width: 80%;
+    }
+}

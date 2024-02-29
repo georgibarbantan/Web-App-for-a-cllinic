@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.5s;
+        }
+
+        .top-bar {
+            background-color: #3187c1;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .profile-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .button {
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .button img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .settings-button {
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            position: relative;
+        }
+
+        .settings-button img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none;
+            flex-direction: column;
+            min-width: 120px;
+            z-index: 1;
+        }
+
+        .settings-button:hover .dropdown-menu {
+            display: flex;
+        }
+
+        .dropdown-item {
+            padding: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.5s; 
+        }
+
+        .dropdown-item:hover {
+            background-color: #f2f2f297;
+        }
+
+        body.dark-theme .dropdown-menu {
+    color: black;
+}
+        body.dark-theme {
+            background-color: black;
+            color: black;
+        }
+
+        .content {
+            padding: 20px;
+            transition: color 0.5s;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-bar">
+        <button class="button" title="Doctors">
+            <img class="profile-img" src="doctors.jpg" alt="Doctors">
+        </button>
+        <button class="button" title="My Profile">
+            <img src="profile.png" alt="Profile">
+        </button>
+        <button class="button" title="Notifications">
+            <img src="notification.png" alt="Notification">
+        </button>
+        <div class="settings-button" title="Settings">
+            <img src="settings.png" alt="Settings">
+            <div class="dropdown-menu">
+                <div class="dropdown-item" onclick="changeTheme()">Dark theme</div>
+                <div class="dropdown-item" onclick="signOut()">Sign out</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>Bun venit!</h1>
+        
+    </div>
+
+    <script>
+function changeTheme() {
+    document.body.classList.toggle("dark-theme");
+    updateDropdownText();
+    updateTextColor();
+}
+
+function updateTextColor() {
+    const body = document.body;
+    if (body.classList.contains("dark-theme")) {
+        body.style.color = "white";
+    } else {
+        body.style.color = "black";
+    }
+}
+
+function updateDropdownText() {
+    const dropdownItems = document.querySelectorAll(".dropdown-item");
+    dropdownItems.forEach(item => {
+        if (item.textContent === "Dark theme") {
+            item.textContent = "Light theme";
+        } else if (item.textContent === "Light theme") {
+            item.textContent = "Dark theme";
+        } else {
+            item.textContent = "Sign out";
+        }
+    });
+}
+
+function signOut() {
+    window.location.href = "login.html";
+}
+
+    </script>
+
+</body>
+</html>

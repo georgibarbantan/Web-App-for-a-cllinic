@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Company</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="subscribe.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:400,500,600,700&amp;display=swap">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.4.0/gsap.min.js"></script>
+    <script src="subscribe.js"></script>
+    
+<style>
+    .logo img {
+    width: 63px; /* Adjust the width as needed */
+    height: 63px; /* Maintain aspect ratio */
+}
+
+
+
+
+
+figure {
+    /* width: calc(33.3333% - 60px); */
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+   
+    position: relative;
+    width: 500px;
+    height: 358px;
+    overflow: hidden;
+    margin: 0 10px;
+}
+
+figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+}
+
+figcaption {
+    /* background-color: rgba(48, 48, 48, 0.3); */
+    /* border: 3px solid black; */
+    /* border-color: black; */
+    color: #ffffff;
+    padding: 10px 15px;
+    margin: none;
+    position: absolute;
+    bottom: 0;
+    right: 0%;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+}
+
+.caption-title {
+    font-size: 1.2em;
+}
+
+.caption-full {
+    opacity: 0;
+    margin-top: 10px;
+}
+
+.expanded {
+    height: 100%;
+    transition: 0.5s ease-in-out;
+    background-color: rgba(48, 48, 48, 0.7);
+}
+
+.visible {
+    opacity: 100;
+}
+
+.image-filter {
+    filter: blur(5px) contrast(90%);
+}
+
+.btn-subscribe.subscribed {
+    background-color: #4caf50; /* Schimbă culoarea de fundal a butonului după abonare */
+    color: #fff; /* Schimbă culoarea textului după abonare */
+    transform: scale(0.9); /* Redu dimensiunea butonului după abonare */
+    transition: background-color 0.5s ease, color 0.5s ease, transform 0.5s ease;
+}
+
+.meet-doctors{
+    transform: scale(0.93);
+}
+
+
+/* .doctor-card-back:img{} */
+
+#fullscreen-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    overflow: hidden;
+    z-index: 9999; 
+}
+
+#fullscreen-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.health-box img {
+            position: absolute;
+            top: 0;
+            width: 50px; /* Ajustează dimensiunea imaginilor conform necesităților tale */
+        }
+
+        .health-box img.left {
+            left: 0;
+        }
+
+        .health-box img.right {
+            right: 0;
+        }
+
+        .health-box {
+    background-color: white;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 20px auto;
+    position: relative;
+    width: 100%;
+    max-width: 1156px;
+    box-sizing: border-box;
+}
+body{
+    background-color: #f0f0f0;
+}
+
+.learn-more-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.btn-learn-more {
+    background-color: #007E85;
+    color: #fff;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 36px;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.btn-learn-more:hover {
+    background-color: #00565A;
+}
+
+
+</style>
+
+</head>
+<body>
+    <div id="fullscreen-container">
+        <video id="fullscreen-video" autoplay muted>
+            <source src="annimation2.3.mp4" type="video/mp4">
+            Mesaj afișat în caz că browser-ul nu suportă eticheta video
+             Your browser does not support the video tag. 
+         </video>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var video = document.getElementById('fullscreen-video');
+                var container = document.getElementById('fullscreen-container');
+
+                // Oprire videoclip și ascundere container după redare
+                video.addEventListener('ended', function() {
+                    video.pause();
+                    container.style.display = 'none';
+                });
+            });
+        </script> 
+     </div> 
+
+    <header>
+        <div class="navbar">
+            <div class="logo" >
+                <img src="logo.jpg" alt="Your Company Logo" id="logo"> <!-- Adaugă un ID aici -->
+            </div>
+            <div class="nav-links">
+                <!-- <a href="#home">Home</a> -->
+                <!-- <a href="#help">Help</a> -->
+                <a href="contact_us.html" style="margin-left:600% ;">Contact Us</a>
+            </div>
+            <div class="user-links">
+                <a href="register.html">Sign Up</a>
+                <a href="option_login.html">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <script type="text/javascript">
+    document.addEventListener("mousemove", parallax);
+
+    function parallax(e) {
+        var bannerImage = document.querySelector('#banner img');
+        var proximity = 3; // Adjust the proximity value as needed
+
+        var mouseX = e.clientX;
+        var mouseY = e.clientY;
+
+        var rect = bannerImage.getBoundingClientRect();
+        var bannerX = rect.left + rect.width / 2;
+        var bannerY = rect.top + rect.height / 2;
+
+        var deltaX = mouseX - bannerX;
+        var deltaY = mouseY - bannerY;
+
+        var percentageX = deltaX / (rect.width / 2) * proximity;
+        var percentageY = deltaY / (rect.height / 2) * proximity;
+
+        bannerImage.style.transform = "translate(" + percentageX + "px, " + percentageY + "px)";
+    }
+</script>
+
+
+
+    <section id="banner" class="banner">
+        <div class="banner-content">
+            <div class="text-content">
+                <h2>Providing Quality Healthcare for a <span class="green-text">Brighter</span> and <span class="green-text">Healthy</span> Future</h2>
+                <p>At our hospital, we are dedicated to providing exceptional medical care to our patients and their families. Our experienced team of medical professionals, cutting-edge technology, and compassionate approach make us a leader in the healthcare industry.</p>
+                <a href="login.html" class="btn-book">Book an Appointment</a>
+            </div>
+            <div class="image-content">
+                <!-- Replace the following line with the actual path to your doctor image -->
+                <img src="poza.png" alt="Doctor Image" data-value="6">
+            </div>
+        </div>
+    </section>
+   <!-- <section id="find-doctor" class="find-doctor">
+        <h2>Find a Doctor</h2>
+        <div class="search-form">
+            <input type="text" placeholder="Doctor's Name">
+            <input type="text" placeholder="Specialty">
+            <label class="toggle-label">
+                <input type="checkbox" id="availabilityToggle">
+                <span class="toggle-slider"></span>
+                Availability
+            </label>
+            <button type="button">Search</button>
+        </div>
+    </section> -->
+    <section id="discount" class="health-box-sec">
+        <div class="health-box">
+            <img class="left" src="discount1.png" alt="Discount Image">
+            <h2>Take care of your <span style="color: #007E85;">health</span> and we take care of your <span style="color: #007E85;">budget</span>!</h2>
+            <p>Book your appointment and earn points! Collect a minimum of <span style="color: #007E85;">50</span> points from your booked appointments<br> and you will be able to receive <span style="color: #007E85;">discounts</span> and <span style="color: #007E85;">free consultations</span> with our doctors.</p>
+            <img class="right" src="discount1.png" alt="Discount Image">
+            <div class="learn-more-button">
+                <a href="#" class="btn-learn-more">Learn more</a>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section id="results" class="results">
+        <h2>Our Results in Numbers</h2>
+        <div class="stat-cards">
+            <div class="stat-card">
+                <div class="percentage">95%</div>
+                <h3>Customer Satisfaction</h3>
+            </div>
+            <div class="stat-card">
+                <div class="percentage">80%</div>
+                <h3>Online Patients</h3>
+            </div>
+            <div class="stat-card">
+                <div class="percentage">90%</div>
+                <h3>Patients Recovered</h3>
+            </div>
+        </div>
+    </section>
+
+ <section id="services" class="services">
+        <h2>Services We Provide</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <img src="cardiology.png" alt="Service 1 Photo" class="service-photo">
+                <h3>Cardiology</h3>
+                <p>Comprehensive heart care services, including diagnostics, treatments, and preventive measures.</p>
+            </div>
+            <div class="service-card">
+                <img src="orthopedics.png" alt="Service 2 Photo" class="service-photo">
+                <h3>Orthopedics</h3>
+                <p>Specialized care for musculoskeletal conditions, joint replacements, and sports injuries.</p>
+            </div>
+            <div class="service-card">
+                <img src="pediatrics.png" alt="Service 3 Photo" class="service-photo">
+                <h3>Pediatrics</h3>
+                <p>Compassionate care for infants, children, and adolescents, ensuring their well-being.</p>
+            </div>
+            <div class="service-card">
+                <img src="neurology.png" alt="Service 4 Photo" class="service-photo">
+                <h3>Neurology</h3>
+                <p>Expertise in the diagnosis and treatment of neurological disorders and conditions.</p>
+            </div>
+            <div class="service-card">
+                <img src="ophtalmology.png" alt="Service 5 Photo" class="service-photo">
+                <h3>Ophthalmology</h3>
+                <p>Advanced eye care services, including surgeries, treatments, and routine eye examinations.</p>
+            </div>
+            <div class="service-card">
+                <img src="dermatology.png" alt="Service 6 Photo" class="service-photo">
+                <h3>Dermatology</h3>
+                <p>Specialized care for skin conditions, cosmetic procedures, and dermatological surgeries.</p>
+            </div>
+        </div>
+    </section>
+    <h2 style="color: #007E85;background-color: #f0f0f0;padding-top: 50px; text-align: center;margin: 0;" > Our Doctors</h2>
+    <section id="meet-doctors" class="meet-doctors">
+        <!-- <div class="doctor-cards">
+            <div class="doctor-card">
+              <div class="doctor-card-front">
+                <img src="doctor1.png" alt="Doctor 1 Photo" class="doctor-photo">
+                <h3>Dr. John Doe</h3>
+                <p>Cardiologist</p>
+              </div>
+              <div class="doctor-card-back">
+                  <img src="doctor1.png" alt="Doctor 1 Photo" class="doctor-photo">
+                  <h5>Meet Dr. John Doe, a dedicated and skilled cardiologist at our healthcare center. With a passion for heart health, Dr. Doe brings a wealth of knowledge and expertise to his practice. </h5>
+              </div>
+            </div>
+
+            <div class="doctor-card">
+                <img src="doctor2.png" alt="Doctor 2 Photo" class="doctor-photo">
+                <h3>Dr. Jane Smith</h3>
+                <p>Orthopedic Surgeon</p>
+            </div>
+            <div class="doctor-card">
+                <img src="doctor3.png" alt="Doctor 3 Photo" class="doctor-photo">
+                <h3>Dr. Michael Johnson</h3>
+                <p>Pediatrician</p>
+            </div>
+            <div class="doctor-card">
+                <img src="doctor4.png" alt="Doctor 4 Photo" class="doctor-photo">
+                <h3>Dr. Emily Williams</h3>
+                <p>Neurologist</p>
+            </div>
+            <div class="doctor-card">
+                <img src="doctor5.png" alt="Doctor 5 Photo" class="doctor-photo">
+                <h3>Dr. Daniel Brown</h3>
+                <p>Ophthalmologist</p>
+            </div>
+            <div class="doctor-card">
+                <img src="doctor6.png" alt="Doctor 6 Photo" class="doctor-photo">
+                <h3>Dr. Olivia Taylor</h3>
+                <p>Dermatologist</p>
+            </div>
+        </div> -->
+
+        <figure>
+            <img src="doctor1.png" alt="Doctor 1 Photo" class="doctor-photo">
+                <h3>Dr. John Doe</h3>
+                <p>Cardiologist</p>
+                <figcaption>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="caption-full">Meet Dr. John Doe, a dedicated and skilled cardiologist at our healthcare center. With a passion for heart health, Dr. Doe brings a wealth of knowledge and expertise to his practice.</div>
+                </figcaption>
+        </figure>
+        <figure>
+            <img src="doctor2.png" alt="Doctor 2 Photo" class="doctor-photo">
+            <h3>Dr. Jane Smith</h3>
+            <p>Orthopedic Surgeon</p>
+            <figcaption>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="caption-full">Meet Dr. Jane Smith, a skilled orthopedic surgeon specializing in musculoskeletal conditions. Dr. Smith is dedicated to providing comprehensive care and helping patients regain their mobility and quality of life.</div>
+            </figcaption>
+        </figure>
+        
+        <figure>
+            <img src="doctor3.png" alt="Doctor 3 Photo" class="doctor-photo">
+            <h3>Dr. Michael Johnson</h3>
+            <p>Pediatrician</p>
+            <figcaption>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="caption-full">Meet Dr. Michael Johnson, a compassionate pediatrician committed to ensuring the well-being of children. Dr. Johnson focuses on preventive care and works closely with families to promote healthy development.</div>
+            </figcaption>
+        </figure>
+        
+        <figure>
+            <img src="doctor4.png" alt="Doctor 4 Photo" class="doctor-photo">
+            <h3>Dr. Emily Williams</h3>
+            <p>Neurologist</p>
+            <figcaption>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="caption-full">Meet Dr. Emily Williams, an experienced neurologist specializing in the diagnosis and treatment of neurological disorders. Dr. Williams is dedicated to providing personalized care to improve the lives of her patients.</div>
+            </figcaption>
+        </figure>
+        
+        <figure>
+            <img src="doctor5.png" alt="Doctor 5 Photo" class="doctor-photo">
+            <h3>Dr. Daniel Brown</h3>
+            <p>Ophthalmologist</p>
+            <figcaption>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="caption-full">Meet Dr. Daniel Brown, a skilled ophthalmologist dedicated to preserving and enhancing the vision of his patients. Dr. Brown provides comprehensive eye care and specializes in various eye conditions.</div>
+            </figcaption>
+        </figure>
+        
+        <figure>
+            <img src="doctor6.png" alt="Doctor 6 Photo" class="doctor-photo">
+            <h3>Dr. Olivia Taylor</h3>
+            <p>Dermatologist</p>
+            <figcaption>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="caption-full">Meet Dr. Olivia Taylor, a renowned dermatologist with a focus on skin health. Dr. Taylor is committed to providing personalized skincare solutions and helping patients achieve and maintain healthy skin.</div>
+            </figcaption>
+        </figure>
+    </section>
+    <script>
+        const figure = document.querySelectorAll('figure');
+const caption = document.querySelectorAll('figcaption');
+const fullCaption = document.querySelectorAll('.caption-full');
+const figureImage = document.querySelectorAll('figure img');
+
+figure.forEach((fig, idx) => {
+    fig.addEventListener('mouseover', () => {
+        caption[idx].classList.add('expanded');
+        fullCaption[idx].classList.add('visible');
+        figureImage[idx].classList.add('image-filter');
+    });
+    
+    fig.addEventListener('mouseout', () => {
+       caption[idx].classList.remove('expanded');
+       fullCaption[idx].classList.remove('visible');
+       figureImage[idx].classList.remove('image-filter');
+    });
+});
+    </script>
+    
+    <!-- <section id="subscribe" class="subscribe">
+        <form class="newsletter-form">
+            <input type="email" placeholder="Email address" id="emailInput" />
+            <button id="subscribeButton">
+                <span class="default">Subscribe</span>
+                <span class="success">
+                    <svg viewBox="0 0 16 16">
+                        <polyline points="3.75 9 7 12 13 5"></polyline>
+                    </svg>Done
+                </span>
+                <svg class="trails" viewBox="0 0 33 64">
+                    <path d="M26,4 C28,13.3333333 29,22.6666667 29,32 C29,41.3333333 28,50.6666667 26,60"></path>
+                    <path d="M6,4 C8,13.3333333 9,22.6666667 9,32 C9,41.3333333 8,50.6666667 6,60"></path>
+                </svg>
+                <div class="plane">
+                    <div class="left"></div>
+                    <div class="right"></div>
+                </div>
+            </button>
+        </form>
+    </section> -->
+
+    <footer>
+        <div class="footer-logo">
+            <img src="logo.jpg" alt="Your Company Logo">
+        </div>
+        <div class="contact-info">
+            <h4>Find out more</h4>
+            <p>Contact: health.tech@gmail.com</p>
+            <p>Address: str. Teodor Mihali, nr.56</p>
+            <p>Telephone: 0764278900</p>
+        </div>
+    </footer>
+
+</body>
+</html>
